@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>HTML Lesson</title>
+    <style>
+      label {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+      <main class="container">
+      <h1>Registration</h1>
+      <form>
+          <label for="email">Email: </label>
+          <input type="email" name="email" placeholder="es: mario@gmail.com">
+          <label for="password">Password: </label>
+          <input type="password" name="password">
+          <label for="complete_name">Complete Name: </label>
+          <input type="text" name="complete_name" placeholder="es: Mario Rossi">
+          <label for="date_of_birth">Date of Birth: </label>
+          <input type="date" name="date_of_birth">
+          <label for="telephone_number">Telephone Number: </label>
+          <input type="text" placeholder="+395678124241">
+          <label for="plan">Choosing plan: </label>
+          <select name="plan">
+            <option value="free_plan">Free Plan</option>
+            <option value="entry_plan">Entry Plan 30 $</option>
+            <option value="medium_plan">Medium Plan 50 $</option>
+            <option value="advanced_plan">Advanced Plan 70 $</option>
+          </select>
+          <input type="checkbox" name="pro_plan">Pro plan
+          <label for="credit_card">Credit card number: </label>
+          <input type="text" name="credit_card_number" placeholder="0000-0000-0000-0000">
+          <label for="ccv">CCV: </label>
+          <input type="password" name="ccv" maxlength="3">
+          <label for="expiration_date">Expiration Date: </label>
+          <input type="date" name="expiration_date">
+          <label for="billing_address">Billing Address: </label>
+          <input type="text" name="billing_address" placeholder="es: Via Roma 86, 00132, Roma, Italy">
+          <br>
+          <br>
+          <button type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
