@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar, .sidelink{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.sidelink {
+    text-align: center;
+}
+
+.sidebar a {
+    color : #2b2b2b;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 1.5ch;
+}
+
+.sidebar a:hover {
+    transition-delay: 300ms;
+    color: #2b2bb2;
+}
+
