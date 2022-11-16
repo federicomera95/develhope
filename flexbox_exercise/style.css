@@ -14,7 +14,7 @@ body {
     justify-content: space-between;
 }
 
-.sidelink {
+.sidelink, .bottom {
     text-align: center;
 }
 
@@ -28,10 +28,6 @@ body {
 .sidebar a:hover {
     transition-delay: 300ms;
     color: #2b2bb2;
-}
-
-.bottom {
-    align-items: center;
 }
 
 
