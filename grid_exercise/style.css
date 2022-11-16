@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+ section.grid {
+    width: 50vh;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.75fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "header header header header"
+    "operators operators operators operators"
+    "number number number result"
+    "number number number result"
+    "number number number result"
+    "number number number result"
+    ;
+}
+
+
+#header,#operators,#number,#result {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#header {
+    grid-area: header;
+    color: white;
+    background-color: rgb(84, 81, 81);
+    display: flex;
+    justify-content: end;
+    border: 1.5px solid rgb(226, 223, 223);  
+}
+
+#header div {
+    margin: auto 10px;
+}
+
+#operators {
+    grid-area: operators;
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    background-color: rgb(226, 223, 223);
+    gap: 3px;
+    border: 1.5px solid rgb(226, 223, 223);  
+}
+
+#number div {
+    background-color: rgb(185, 174, 174);
+    /* border: 1.6px solid rgb(185, 174, 174); */
+}
+
+#operators div {
+    background-color: rgb(185, 200, 202);
+}
+
+#number {
+    grid-area: number;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: rgb(226, 223, 223);
+    grid-gap: 3px;
+    border: 1.5px solid rgb(226, 223, 223);  
+}
+
+#result {
+    grid-area: result;
+    background-color: rgb(233, 118, 118);
+    border: 1.5px solid rgb(226, 223, 223);
+    display: inline-grid; 
+}
+
+#operators div,#number div,#result div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+ /**/
+
+ /* article {
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 3px;
+  }
+  
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    font-size: 3em;
+  } */
