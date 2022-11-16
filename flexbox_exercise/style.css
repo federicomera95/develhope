@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.sidebar, .sidelink{
+.sidebar, .sidelink, .bottom {
     display: flex;
     flex-direction: column;
 }
@@ -29,4 +29,9 @@ body {
     transition-delay: 300ms;
     color: #2b2bb2;
 }
+
+.bottom {
+    align-items: center;
+}
+
 
