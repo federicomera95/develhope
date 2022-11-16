@@ -4,10 +4,15 @@ body {
     display: flex;
     justify-content: center;
     justify-items: center;
+    font-family: "Roboto" , sans-serif;
+    font-weight: 600;
+    font-size: 1.375em;
 }
 
  section.grid {
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
     width: 50vh;
     height: 50vh;
     display: grid;
@@ -21,28 +26,21 @@ body {
     "number number number result"
     "number number number result"
     ;
-    border-radius: 0 0 0 10px;
 }
 
-#cc{
-    border-radius: 0 0 0 10px;
-}
 
 
 #header,#operators,#number,#result {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
 }
 
 #header {
-    border-radius: 10px 10px 0 0;
     grid-area: header;
     color: white;
     background-color: rgb(84, 81, 81);
     display: flex;
     justify-content: end;
-    border: 1.5px solid rgb(226, 223, 223);  
+    border: 1px solid #8c9fb0;  
 }
 
 #header div {
@@ -54,17 +52,17 @@ body {
     display: inline-grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    background-color: rgb(226, 223, 223);
-    gap: 3px;
-    border: 1.5px solid rgb(226, 223, 223);  
+    background-color: #8c9fb0;
+    grid-gap: 3px;
+    border: 1px solid #8c9fb0;  
 }
 
 #number div {
-    background-color: rgb(178, 191, 190);
+    background-color: #eff2f5;
 }
 
 #operators div {
-    background-color: rgb(185, 200, 202);
+    background-color: #d2dce4;
 }
 
 #number {
@@ -72,19 +70,16 @@ body {
     display: inline-grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    background-color: rgb(226, 223, 223);
+    background-color: #8c9fb0;
     grid-gap: 3px;
-    border: 1.5px solid rgb(226, 223, 223);
-    border-radius: 0 0 0 10px;  
-    
+    border: 1px solid #8c9fb0; 
 }
 
 #result {
     grid-area: result;
     background-color: rgb(233, 118, 118);
-    border: 1.5px solid rgb(226, 223, 223);
+    border: 1px solid #8c9fb0;
     display: inline-grid;
-    border-radius: 0 0 10px 0;  
 }
 
 #operators div,#number div,#result div {
@@ -92,23 +87,3 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-
-
-
- /**/
-
- /* article {
-    display: grid;
-    grid-template-rows: 100px 100px 100px;
-    grid-template-columns: 100px 100px 100px;
-    grid-gap: 3px;
-  }
-  
-  section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
-    font-size: 3em;
-  } */
