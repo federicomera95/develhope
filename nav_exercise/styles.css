@@ -105,7 +105,7 @@ img {
     background-color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     a, input, button {
         display: none;
     }
