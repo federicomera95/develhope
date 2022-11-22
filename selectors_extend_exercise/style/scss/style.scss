@@ -1,0 +1,54 @@
+@use "root.scss" as r;
+@use "functions.scss" as f;
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid r.$color-primary;
+    margin: f.rem(0.5) f.rem(1);
+}
+
+.h1 {
+    color: r.$color-tertiary;
+    border-bottom: 1px solid r.$color-secondary;
+}
+section {
+    display: flex;
+    padding: 0 f.rem(1);
+    padding-bottom: f.rem(1);
+}
+
+@mixin article ($color,$border-color,$font-size: f.rem(1)) {
+    border: 1px solid $border-color;
+    font-size: $font-size;
+    text-align: center;
+    p {
+        padding: f.rem(0.5) f.rem(1);
+        @content;
+    }
+}
+
+.article-card {
+    @include article ($color: r.$color-primary, $border-color: r.$color-tertiary) {
+        &.odd{
+            color: r.$color-secondary;
+        }
+        &.even{
+            color: r.$color-primary;
+        }
+    }
+}
+
+.article-footer {
+    @include article ($color: r.$color-tertiary,$border-color: r.$color-secondary,$font-size: f.rem(1.5)) {
+         color: r.$color-tertiary;
+    }
+}
