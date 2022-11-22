@@ -1,0 +1,52 @@
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+  margin: 0.5rem 1rem;
+}
+
+h1 {
+  color: green;
+  border-bottom: 1px solid blue;
+}
+
+section {
+  display: flex;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+}
+
+.article-card {
+  border: 1px solid green;
+  font-size: 1rem;
+  text-align: center;
+}
+.article-card p {
+  padding: 0.5rem 1rem;
+}
+.article-card p.odd {
+  color: blue;
+}
+.article-card p.even {
+  color: red;
+}
+
+.article-footer {
+  border: 1px solid blue;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.article-footer p {
+  padding: 0.5rem 1rem;
+  color: green;
+}
+
+/*# sourceMappingURL=style.css.map */
