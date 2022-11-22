@@ -1,0 +1,59 @@
+@use "sass:color";
+
+$color-primary: red;
+$color-secondary: blue;
+$color-tertiary: green;
+
+body {
+    padding: 0;
+}
+
+div {
+    margin: 8px;
+    border: 1px solid $color-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: $color-tertiary;
+    border-bottom: 1px solid $color-secondary;
+    margin-bottom: 8px;
+}
+section {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+    margin: 0 8px 0 8px;
+}
+
+@mixin article ($color,$border-color,$font-size: 1rem) {
+    border: 1px solid $border-color;
+    font-size: $font-size;
+    p {
+        padding: 8px;
+        @content;
+    }
+}
+
+.article-card {
+    @include article ($color: $color-primary, $border-color: $color-tertiary) {
+        &.odd{
+            color: $color-secondary;
+        }
+        &.even{
+            color: $color-primary;
+        }
+    }
+}
+
+.article-footer {
+    @include article ($color: $color-tertiary,$border-color: $color-secondary,$font-size: 24px) {
+         color: $color-tertiary;
+         margin-left: 32px;
+         margin-right: 32px;
+    }
+    margin-bottom: 8px;
+}
