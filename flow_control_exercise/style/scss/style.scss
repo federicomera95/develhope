@@ -1,0 +1,112 @@
+@use "root.scss" as r;
+@use "functions.scss" as f;
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+div.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid r.$color-primary;
+    margin: f.rem(0.5) f.rem(1);
+}
+
+h1 {
+    color: r.$color-tertiary;
+    border-bottom: 1px solid r.$color-secondary;
+}
+section.section-card,
+section.section-footer {
+    display: flex;
+    padding: 0 f.rem(1);
+    padding-bottom: f.rem(1);
+}
+
+@mixin article($color, $border-color, $font-size: f.rem(1)) {
+    border: 1px solid $border-color;
+    font-size: $font-size;
+    text-align: center;
+    p {
+        padding: f.rem(0.5) f.rem(1);
+        @content;
+    }
+}
+
+.article-card {
+    @include article($color: r.$color-primary, $border-color: r.$color-tertiary) {
+        &.odd {
+            color: r.$color-secondary;
+        }
+        &.even {
+            color: r.$color-primary;
+        }
+    }
+}
+
+.article-footer {
+    @include article($color: r.$color-tertiary, $border-color: r.$color-secondary, $font-size: f.rem(1.5)) {
+        color: r.$color-tertiary;
+    }
+}
+
+section.section-number {
+    display: flex;
+    flex-direction: row;
+    padding: 0 f.rem(1);
+}
+
+$sizes: 1, 2, 3;
+
+@each $size in $sizes {
+    .fs-#{$size}rem {
+        display: flex;
+        width: 3.1rem;
+        height: 3.1rem;
+        color: black;
+        background-color: white;
+        border: 1px solid red;
+        margin: 0.85rem;
+        font-size: f.rem($size);
+    }
+}
+
+@for $index from 1 to 20 {
+    @if $index == 1 or $index == 4 or $index == 8 or $index == 11 or $index == 14 or $index == 17 {
+        .fs-1rem:nth-child(#{$index}) {
+            color: hsl(0, 0%, calc(0% + #{$index}*5%));
+            background-color: hsl(0, 0%, calc(100% - #{$index}*5%));
+        }
+    }
+
+    @if $index == 2 or $index == 5 or $index == 7 or $index == 13 or $index == 16 or $index == 19 {
+        .fs-2rem:nth-child(#{$index}) {
+            color: hsl(0, 0%, calc(0% + #{$index}*5%));
+            background-color: hsl(0, 0%, calc(100% - #{$index}*5%));
+        }
+    }
+
+    @if $index == 3 or $index == 6 or $index == 9 or $index == 12 or $index == 15 or $index == 18 {
+        .fs-3rem:nth-child(#{$index}) {
+            color: hsl(0, 0%, calc(0% + #{$index}*5%));
+            background-color: hsl(0, 0%, calc(100% - #{$index}*5%));
+        }
+    }
+
+    @if $index == 10 {
+        .fs-2rem:nth-child(#{$index}) {
+            color: red;
+            background-color: blue;
+        }
+    }
+}
+
+// @for $index from 1 to 20 {
+//     div .fs-#{$index}rem {
+//         padding: 1rem;
+//     }
+// }
