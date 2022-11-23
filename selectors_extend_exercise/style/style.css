@@ -13,9 +13,16 @@ div {
   margin: 0.5rem 1rem;
 }
 
-.h1 {
-  color: green;
+h1 {
   border-bottom: 1px solid blue;
+}
+
+.parent, .parent_child {
+  color: green;
+}
+.parent_child {
+  border: 1px solid red;
+  padding: 1rem;
 }
 
 section {

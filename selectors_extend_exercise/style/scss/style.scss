@@ -1,5 +1,6 @@
 @use "root.scss" as r;
 @use "functions.scss" as f;
+@use "sass:selector";
 
 body {
     width: 100%;
@@ -16,9 +17,17 @@ div {
     margin: f.rem(0.5) f.rem(1);
 }
 
-.h1 {
-    color: r.$color-tertiary;
+h1 {
     border-bottom: 1px solid r.$color-secondary;
+}
+
+.parent {
+    color: r.$color-tertiary;
+    &_child {
+        @extend .parent;
+        border: 1px solid r.$color-primary;
+        padding: 1rem;
+    }
 }
 section {
     display: flex;
