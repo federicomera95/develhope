@@ -1,9 +1,11 @@
 const printName = () =>{
     const helloName = "Hello John";
     
-    return inner = () =>{
+    function inner(){
         return helloName;
     }
+
+    return inner;
 }
 
 const callName = printName()();
