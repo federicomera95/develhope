@@ -26,7 +26,7 @@ class AreaCalculator {
     if(figure instanceof Rectangle) result = (figure.width*figure.height);
     if(figure instanceof Circle) result = (figure.pgreco*(figure.radius*figure.radius));
 
-    return result = Math.round(result);
+    return Math.round(result);
   }
 }
 
