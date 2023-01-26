@@ -4,12 +4,10 @@ import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const hello = 'Hello World!!!';
+const Hello = <h1>Hello World!!!</h1>;
 
 root.render(
   <React.StrictMode>
-    <h1>
-    {hello}
-    </h1>
+    <Hello />
   </React.StrictMode>
 );
