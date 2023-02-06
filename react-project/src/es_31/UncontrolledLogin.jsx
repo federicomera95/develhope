@@ -12,6 +12,9 @@ export class UncontrolledLogin extends React.Component {
         const password = event.target.elements.password.value;
         const remember = event.target.elements.remember.checked;
 
+
+        this.props.onLogin();
+
         console.log({
             username,
             password,

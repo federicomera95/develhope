@@ -14,6 +14,8 @@ export class UncontrolledLogin extends React.Component {
         const password = event.target.elements.password.value;
         const remember = event.target.elements.remember.checked;
 
+        this.props.onLogin();
+
         console.log({
             username,
             password,
@@ -22,6 +24,9 @@ export class UncontrolledLogin extends React.Component {
     }
 
     render() {
+
+
+
         return (
             <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
                 <input type="text" name="username" />
