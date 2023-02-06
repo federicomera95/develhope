@@ -3,21 +3,26 @@ import React from "react";
 
 export class TodoList extends React.Component {
 
-    items=['javascript','php','python','java'];
+    state = { 
+        items:['javascript','php','python','java'],
+        value: '',
+    };
 
-    handleAddNewItem = ()=> {
-       this.setState((items)=>{
-           this.items.push(document.getElementById('item').value);
-           return this.items;
-       });
+    handleChangeInput = ({value}) => {
+        this.setState({value: value});
     }
+
+    handleAddItem = ()=> {
+       this.setState((state) => ({ items: state.items.push(state.value) }));
+    }
+
 
     render() {
         return (
              <ul>
-                {this.items.map((name,index)=> <li key={name+index}>{name}</li>)}
-                <input type="text" id="item"/>
-                <button onClick={this.handleAddNewItem}>Add item</button>
+                {this.state.items.map((item)=> <li key={this.state.items.indexOf(item)}>{item}</li>)}
+                <input type="text" value={this.state.value} onChange={({target}) => this.handleChangeInput(target)}/>
+                <button onClick={this.handleAddItem}>Add item</button>
              </ul>
         );
     }
