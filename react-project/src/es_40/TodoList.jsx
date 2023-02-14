@@ -13,7 +13,7 @@ export class TodoList extends React.Component {
     }
 
     handleAddItem = ()=> {
-       this.setState((state) => ({ items: state.items.push(state.value) }));
+       this.setState((state) => state.items.push(state.value));
     }
 
     handleRemoveItem = (i) => {
@@ -27,9 +27,10 @@ export class TodoList extends React.Component {
 
 
     render() {
+        console.log(this.state)
         return (
              <ul>
-                {this.state.items.map((item)=> <li key={this.state.items.indexOf(item)}>{item}<button onClick={()=> this.handleRemoveItem(this.state.items.indexOf(item))}>Remove item</button></li>)}
+                {this.props.render(this.state.items,this.handleRemoveItem)}
                 <input type="text" value={this.state.value} onChange={({target}) => this.handleChangeInput(target)}/>
                 <button onClick={this.handleAddItem}>Add item</button>
                 <button onClick={this.handleResetItems}>Reset item</button>
