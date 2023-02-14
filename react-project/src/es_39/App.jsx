@@ -9,8 +9,8 @@ export class App extends React.Component {
     render() {
         return (
             <div>
-              <Container>
-                    <h1>This is a Children</h1>
+              <Container title={(<h1>My title</h1>)}>
+                    <h1>My children</h1>
               </Container>
             </div>
         );
