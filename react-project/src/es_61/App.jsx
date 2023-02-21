@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Welcome from "./Welcome";
-import ClickCounter from "../es_46/ClickCounter";
+import ClickCounter from "./ClickCounter";
 
 const App = ()=> {
 
