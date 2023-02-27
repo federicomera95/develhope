@@ -30,7 +30,7 @@ function languagesSpoken(
 
   console.log(language1);
 
-  typeof language2 !== "undefined" && console.log(language2);
+  typeof language2 === "string" && console.log(language2);
 }
 
 languagesSpoken("Colombia", "Spanish", "English");
