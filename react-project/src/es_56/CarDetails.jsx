@@ -6,10 +6,11 @@ const CarDetails = ({ initialData }) => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const data = {};
-    formRef.current.elements.forEach((el) => {
-      data[el.name] = el.value;
+    Array.from(formRef.current.elements).forEach((el) => {
+      if (el.name !== "") data[el.name] = el.value;
     });
     //call to api -> data
+    console.log(data);
     formRef.current.reset();
   };
 
