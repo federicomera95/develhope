@@ -1,24 +1,27 @@
-import { useRef } from "react"
+import { useRef } from "react";
 
+const CarDetails = ({ initialData }) => {
+  const formRef = useRef(null);
 
-const CarDetails = () => {
-    
-    const formRef = useRef({model: 'Fiat', year: 2015, color: 'White'});
-    
-    const handleChangeForm = (e) => {
-        e.preventDefault()
-        formRef.current.reset();
-    }
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    const data = {};
+    formRef.current.elements.forEach((el) => {
+      data[el.name] = el.value;
+    });
+    //call to api -> data
+    formRef.current.reset();
+  };
 
-    return (
-        <form ref={formRef} onChange={handleChangeForm}>
-            <input name='model' defaultValue={formRef.current.model}/>
-            <input name='year' defaultValue={formRef.current.year}/>
-            <input name='color' defaultValue={formRef.current.color}/>
-            <button type='submit'>Save</button>
-            <button type='reset'>Reset</button>
-        </form>
-    );
-}
+  return (
+    <form ref={formRef} onSubmit={handleSubmitForm}>
+      <input name="model" defaultValue={initialData.model} />
+      <input name="year" defaultValue={initialData.year} />
+      <input name="color" defaultValue={initialData.color} />
+      <button type="submit">Save</button>
+      <button type="reset">Reset</button>
+    </form>
+  );
+};
 
 export default CarDetails;
