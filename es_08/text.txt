@@ -1,0 +1,87 @@
+Trying 172.64.103.31:443...
+* Connected to jsonplaceholder.typicode.com (172.64.103.31) port 443 (#0)
+* ALPN: offers h2
+* ALPN: offers http/1.1
+*  CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+*  CApath: none
+* [CONN-0-0][CF-SSL] TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, Server hello (2):
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, Certificate (11):
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, Finished (20):
+* [CONN-0-0][CF-SSL] TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* [CONN-0-0][CF-SSL] TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: C=US; ST=California; L=San Francisco; O=Cloudflare, Inc.; CN=sni.cloudflaressl.com
+*  start date: Jun  6 00:00:00 2022 GMT
+*  expire date: Jun  5 23:59:59 2023 GMT
+*  subjectAltName: host "jsonplaceholder.typicode.com" matched cert's "*.typicode.com"
+*  issuer: C=US; O=Cloudflare, Inc.; CN=Cloudflare Inc ECC CA-3
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multiplexing
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* h2h3 [:method: GET]
+* h2h3 [:path: /posts/1/comments]
+* h2h3 [:scheme: https]
+* h2h3 [:authority: jsonplaceholder.typicode.com]
+* h2h3 [user-agent: curl/7.87.0]
+* h2h3 [accept: */*]
+* Using Stream ID: 1 (easy handle 0x1f0305e1270)
+> GET /posts/1/comments HTTP/2
+> Host: jsonplaceholder.typicode.com
+> user-agent: curl/7.87.0
+> accept: */*
+>
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* [CONN-0-0][CF-SSL] TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* old SSL session ID is stale, removing
+* Connection state changed (MAX_CONCURRENT_STREAMS == 256)!
+< HTTP/2 200 
+< date: Tue, 07 Mar 2023 12:56:35 GMT
+
+
+
+[value of content type]
+< content-type: application/json; charset=utf-8
+
+
+
+
+< x-powered-by: Express
+< x-ratelimit-limit: 1000
+< x-ratelimit-remaining: 999
+< x-ratelimit-reset: 1678181153
+< vary: Origin, Accept-Encoding
+< access-control-allow-credentials: true
+< cache-control: max-age=43200
+< pragma: no-cache
+< expires: -1
+< x-content-type-options: nosniff
+< etag: W/"5e6-4bSPS5tq8F8ZDeFJULWh6upjp7U"
+< via: 1.1 vegur
+< cf-cache-status: HIT
+< age: 12680
+< server-timing: cf-q-config;dur=4.9999998736894e-06
+< report-to: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=wx6IsF%2FOKZSMtdmhVba0Zi%2BZ%2FH0KTCS%2F8yk%2FHajlO1CSGcIrI%2FJ%2BHmEcJVlkPlqwgWRCxo%2FZ%2Fc76hiIfy8TSZHy%2B%2F98nY%2Bny1uz69pk5%2BFocbi0lreugfia0WP3GFLTBpy%2Fwpi2NmQMsIdCq4c0t"}],"group":"cf-nel","max_age":604800}
+< nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+< server: cloudflare
+< cf-ray: 7a42ffd66e4e4203-MRS
+< alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+<
+[
+  {
+    "postId": 1,
+    "id": 1,
+    "name": "id labore ex et quam laborum",
+    "email": "Eliseo@gardner.biz",
+net qui rerum deleniti ut occaecati"  },
+  {
+    "postId": 1,
+    "id": 5,
+    "name": "vero eaque aliquid doloribus et culpa",
+    "email": "Hayden@althea.biz",
+    "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"  }
+]* Connection #0 to host jsonplaceholder.typicode.com left intact
