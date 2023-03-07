@@ -1,6 +1,6 @@
 {
-  "name": "es_07",
-  "version": "1.0.0",
+  "name": "new-project",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
