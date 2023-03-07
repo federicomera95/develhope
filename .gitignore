@@ -1,2 +1,4 @@
-/react-project
-/node_modules
+**/node_modules
+**/yarn.lock
+**/package-lock.json
+**/react-project
