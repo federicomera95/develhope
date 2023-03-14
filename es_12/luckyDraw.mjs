@@ -22,6 +22,8 @@ const getResults = async (player) => {
 };
 
 const players = ["Tina", "Jorge", "Julien"];
-players.map((player) => {
-  getResults(player);
-});
+(async () => {
+  for (const player of players) {
+    await getResults(player);
+  }
+})();
