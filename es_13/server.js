@@ -1,17 +1,9 @@
-const express = require("express");
+require("dotenv").config();
 
-const createServer = () => {
-  const app = express();
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.json({ extended: true }));
+const app = require("/app");
 
-  app.get("/", (req, res) => {
-    console.log("Get response");
-
-    return res.status(200).json({ status: "online" });
-  });
-
-  return app;
-};
-
-module.exports = createServer;
+app.listen(process.env.SERVER_PORT, () => {
+  console.log(
+    `Server listen at ${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`
+  );
+});
