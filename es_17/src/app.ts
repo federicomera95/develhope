@@ -11,7 +11,7 @@ import {
   PlanetData,
 } from "./lib/validation";
 
-const corsOptions = { origin: "Origin: http://localhost:8080" };
+const corsOptions = { origin: "http://localhost:8080" };
 
 const app = express();
 
