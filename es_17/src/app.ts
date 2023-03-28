@@ -11,6 +11,10 @@ import {
   PlanetData,
 } from "./lib/validation";
 
+import { initMulterMiddleware } from "./lib/middleware/multer";
+
+const upload = initMulterMiddleware();
+
 const corsOptions = { origin: "http://localhost:8080" };
 
 const app = express();
@@ -88,6 +92,21 @@ app.delete("/planets/:id(\\d+)", async (req, res, next) => {
     next(`Cannot DELETE /planets/${planetId}`);
   }
 });
+
+app.post(
+  "/planets/:id(\\d+)/photo",
+  upload.single("photo"),
+  async (req, res, next) => {
+    if (!req.file) {
+      res.status(400);
+      return next("No photo file uploaded.");
+    }
+
+    const photoFileName = req.file.filename;
+
+    res.status(201).json({ photoFileName });
+  }
+);
 
 app.use(validationErrorMiddleware);
 
