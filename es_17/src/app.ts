@@ -1,5 +1,6 @@
 import express from "express";
 import "express-async-errors";
+import cors from "cors";
 
 import prisma from "./lib/prisma/client";
 
@@ -13,7 +14,7 @@ import {
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 //GET /planets - Retrieve all planets
 app.get("/planets", async (req, res) => {
   const planets = await prisma.planet.findMany();
