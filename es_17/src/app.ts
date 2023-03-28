@@ -11,10 +11,12 @@ import {
   PlanetData,
 } from "./lib/validation";
 
+const corsOptions = { origin: "Origin: http://localhost:8080" };
+
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 //GET /planets - Retrieve all planets
 app.get("/planets", async (req, res) => {
   const planets = await prisma.planet.findMany();
