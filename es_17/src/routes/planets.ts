@@ -1,16 +1,21 @@
 import express, { Router } from "express";
-import "express-async-errors";
 
 import prisma from "../lib/prisma/client";
 
-import { validate, planetSchema, PlanetData } from "../lib/validation";
+import {
+  validate,
+  planetSchema,
+  PlanetData,
+} from "../lib/middleware/validation";
 
 import { initMulterMiddleware } from "../lib/middleware/multer";
+import { checkAuthorization } from "../lib/middleware/passport";
 
 const upload = initMulterMiddleware();
 
 const router = Router();
 
+//GET /planets - Retrieve all planets
 router.get("/", async (req, res) => {
   const planets = await prisma.planet.findMany();
 
@@ -34,19 +39,25 @@ router.get("/:id(\\d+)", async (req, res, next) => {
 });
 
 //POST /planets - Create a new planet
-router.post("/", validate({ body: planetSchema }), async (req, res) => {
-  const planetData: PlanetData = req.body;
+router.post(
+  "/",
+  checkAuthorization,
+  validate({ body: planetSchema }),
+  async (req, res) => {
+    const planetData: PlanetData = req.body;
 
-  const planet = await prisma.planet.create({
-    data: planetData,
-  });
+    const planet = await prisma.planet.create({
+      data: planetData,
+    });
 
-  res.status(201).json(planet);
-});
+    res.status(201).json(planet);
+  }
+);
 
 //PUT /planets/:id - Replace an existing planet
 router.put(
   "/:id(\\d+)",
+  checkAuthorization,
   validate({ body: planetSchema }),
   async (req, res, next) => {
     const planetId = Number(req.params.id);
@@ -67,7 +78,7 @@ router.put(
 );
 
 //DELETE /planets/:id - Delete a planets
-router.delete("/:id(\\d+)", async (req, res, next) => {
+router.delete("/:id(\\d+)", checkAuthorization, async (req, res, next) => {
   const planetId = Number(req.params.id);
 
   try {
@@ -82,8 +93,10 @@ router.delete("/:id(\\d+)", async (req, res, next) => {
   }
 });
 
+//POST /planets/:id/photo - Add a photo for a planet
 router.post(
   "/:id(\\d+)/photo",
+  checkAuthorization,
   upload.single("photo"),
   async (req, res, next) => {
     if (!req.file) {
@@ -91,9 +104,20 @@ router.post(
       return next("No photo file uploaded.");
     }
 
-    const photoFileName = req.file.filename;
+    const planetID = Number(req.params.id);
+    const photoFilename = req.file.filename;
 
-    res.status(201).json({ photoFileName });
+    try {
+      await prisma.planet.update({
+        where: { id: planetID },
+        data: { photoFilename },
+      });
+
+      res.status(201).json({ photoFilename });
+    } catch (error) {
+      res.status(404);
+      next(`Cannot POST /planets/${planetID}/photo`);
+    }
   }
 );
 
