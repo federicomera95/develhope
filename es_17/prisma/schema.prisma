@@ -18,5 +18,7 @@ model Planet {
   moons           Int
   photoFilename   String?       @db.VarChar(255)
   created_at      DateTime      @default(now())
+  createdBy       String?       @db.VarChar(255)
   updated_at      DateTime      @updatedAt
+  updatedBy       String?       @db.VarChar(255)
 }
